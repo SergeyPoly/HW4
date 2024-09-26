@@ -4,11 +4,7 @@ import re
 date_pattern = r"^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$"
 
 def is_date_valid (date: str) -> bool:
-    if re.match(date_pattern, date):
-        return True
-    else:
-        print("warning! this app supports YYYY-MM-DD format of date only")
-        return False
+    return re.match(date_pattern, date)
 
 
 def get_days_from_today(date: str) -> int:
@@ -19,6 +15,7 @@ def get_days_from_today(date: str) -> int:
 
         return difference.days
     else:
+       print("warning! this app supports YYYY-MM-DD format of date only")
        return 0
 
 print(get_days_from_today('2023-11-20'))
